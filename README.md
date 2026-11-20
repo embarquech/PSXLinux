@@ -16,7 +16,7 @@ psx:/#
 PSXLinux is the work of **Runix** (www.runix.ru), a project of **Blokman Trading s.r.o.**
 (Vadim V. Veshchezerov, CEO), released in 2001 as kernel alpha 2 and beta 1. It is based on
 **uClinux** 2.4 (www.uclinux.org) and the Linux kernel. The SL811H USB host driver was written by
-A. Burmistrov. All of the kernel in `kernel/` is theirs and stays under the GNU GPL (`kernel/COPYING`).
+A. Burmistrov. All of the kernel in `kernel/` is theirs (see [License](#license)).
 
 What this repository adds: the memory card root file system and its tools, a userland, a kernel
 configuration that is safe with cheat cartridges, and the instructions below.
@@ -105,3 +105,14 @@ gives the ELF `linux`, then:
    multiple of 2048, and clear everything after `_edata` (eco2exe leaves junk in the BSS).
 
 The kernel runs at 00010000h (KUSEG), entry 00010388h, stack 801FFFF0h.
+
+## License
+
+- **`kernel/`**: the PSXLinux kernel by Runix, based on Linux and uClinux, keeps its original
+  license: the **GNU GPL version 2** only (`kernel/COPYING`), like the Linux kernel.
+- **Everything else** (the root file system and psxsh in `rootfs/`, the tools, the docs, the
+  release files built from them): **GNU GPL version 3** (`LICENSE`).
+
+psxsh and the other user programs only use the kernel through its system calls: as
+`kernel/COPYING` states, they are not derived works of the kernel, so the two licenses do not
+conflict. The kernel binary in `release/` is built from `kernel/` and remains under GPL v2.
