@@ -30,6 +30,7 @@ configuration that is safe with cheat cartridges, and the instructions below.
 | `release/psxlinux_root.mcd` | The root file system: a 128 KB memory card image. |
 | `rootfs/` | Userland (`psxsh`) and the tools that make the card image. |
 | `tools/terminal.ps1` | Serial terminal for the console (Windows). |
+| `docs/` | [The memory card](docs/memory-card.md), [`pad`: controller test](docs/pad.md), [`btc`: Bitcoin mining](docs/bitcoin.md). |
 
 ### Alpha 2 to beta 1
 
@@ -50,10 +51,11 @@ card driver (`kernel/drivers/block/bu.c`):
   header, frames 8 to 1023 are the block device `/dev/bu0`: 127 KB of **ext2**.
 - **Userland**: no libc. `psxsh` is a single **bFLT** program (the kernel's executable format):
   `/sbin/init`, `/bin/sh` and about 30 commands (`ls cat cp mv rm mkdir ps kill mount df free
-  dmesg hexdump reboot`..., `pad` for a controller test, `btc` for a Bitcoin mining demo). See
-  `rootfs/src/psxsh.c`.
+  dmesg hexdump reboot`..., [`pad`](docs/pad.md) for a controller test, [`btc`](docs/bitcoin.md)
+  for a Bitcoin mining demo). See `rootfs/src/psxsh.c`.
 - **Build**: `bash rootfs/build.sh` (any MIPS GCC; `MIPS_GCC_BIN` = its `bin` folder). It checks
-  the relocations, writes the card image and verifies the ext2 file system.
+  the relocations, writes the card image and verifies the ext2 file system. Details, and how to add
+  your own files: [docs/memory-card.md](docs/memory-card.md).
 
 **Writing the card erases it**, and the PlayStation BIOS no longer sees it as a game card. Use a
 spare card, or save it first. Copy the image to the card in slot 1 with
