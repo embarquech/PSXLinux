@@ -1,0 +1,3 @@
+rootfs/build/*
+!rootfs/build/flat_test.ld
+__pycache__/

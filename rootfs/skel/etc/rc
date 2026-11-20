@@ -1,0 +1,2 @@
+# /etc/rc - run by init (psxsh) before the shell. One command per line, ';' allowed.
+cat /etc/motd

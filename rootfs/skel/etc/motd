@@ -1,0 +1,5 @@
+
+  PSXLinux - uClinux 2.4 on the Sony PlayStation
+  root file system: ext2 on the memory card in slot 1 (/dev/bu0, 127 KB)
+  type 'help' for the commands. 'reboot' syncs the card first.
+
